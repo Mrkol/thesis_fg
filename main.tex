@@ -1,0 +1,34 @@
+\documentclass[12pt, draft]{extarticle}
+
+\input{preamble.tex}
+\input{hyphenation.tex}
+
+\hypersetup{final}
+
+\begin{document}
+
+\include{title}
+
+
+\newpage
+\setcounter{page}{2}
+
+\vspace*{\fill}
+\begin{abstract}
+Данная работа посвящена одному из подходов к построению архитектуры приложений реального времени, называемого неформально "фреймграфом" или "рендерграфом". Подход основывается на использовании вычислительного графа как представления процесса вычисления итоговой картинки одного кадра приложения. 
+\end{abstract}
+\vspace*{\fill}
+
+\newpage
+\tableofcontents
+\newpage
+
+\setlength{\parskip}{\mainparskip}
+
+\include{chapters/intro}
+\include{chapters/overview}
+
+\newpage
+\printbibliography
+\end{document}
+

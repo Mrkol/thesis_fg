@@ -1,0 +1,66 @@
+\usepackage{fontspec}
+\usepackage{polyglossia}
+
+  
+\setdefaultlanguage{russian}
+\setotherlanguage{english}
+
+
+\defaultfontfeatures{Ligatures=TeX}
+
+\setmainfont{Times New Roman}
+\setsansfont{Arial}
+\setmonofont[Contextuals=Alternate]{Fira Code}
+
+\newfontfamily\cyrillicfont{Times New Roman}
+\newfontfamily\cyrillicfontsf{Arial}
+\newfontfamily\cyrillicfonttt[Contextuals=Alternate]{Fira Code}
+
+\newfontfamily\englishfont{Times New Roman}
+\newfontfamily\englishfontsf{Arial}
+\newfontfamily\englishfonttt[Contextuals=Alternate]{Fira Code}
+
+\usepackage[a4paper, lmargin=30mm, rmargin=15mm, tmargin=20mm, bmargin=20mm]{geometry}
+\linespread{1.5}
+\usepackage{parskip}
+\newcommand{\mainparskip}{1.25cm}
+
+
+\usepackage[outputdir=build]{minted}
+\usemintedstyle{vs}
+\setminted{fontsize=\footnotesize}
+
+\newcommand{\inlcpp}[1]{\mintinline{c++}{#1}}
+
+\usepackage[backend=biber,
+  bibencoding=utf8,
+  sorting=none,
+  style=gost-numeric,
+  language=autobib,
+  autolang=other,
+  clearlang=true,
+  defernumbers=true,
+  sortcites=true,
+  doi=true,
+  isbn=true,
+]{biblatex}
+
+\bibliography{bibliography}
+
+\usepackage[dvipsnames]{xcolor}
+\usepackage[hidelinks,colorlinks=true,citecolor=BurntOrange,urlcolor=Blue]{hyperref}
+\renewcommand{\UrlFont}{\small\rmfamily\tt}
+\renewcommand\thesection{\arabic{section}}
+
+\usepackage{amsfonts}
+
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepgfplotslibrary{external}
+\tikzexternalize
+
+\usepackage{wrapfig}
+
+\usepackage{graphicx}
+\graphicspath{ {./images/} }
