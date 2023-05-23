@@ -66,3 +66,8 @@
 
 \usepackage{graphicx}
 \graphicspath{ {./images/} }
+
+% Code snippets
+\usepackage[outputdir=build]{minted}
+\usemintedstyle{vs}
+\renewcommand{\inlcpp}[1]{\mintinline{c++}{#1}}
