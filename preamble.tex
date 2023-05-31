@@ -1,6 +1,6 @@
 \usepackage{fontspec}
 \usepackage{polyglossia}
-
+\let\lang\relax\let\endlang\relax % avoid conflict with complexity.sty
 
 \setdefaultlanguage{russian}
 \setotherlanguage{english}
@@ -22,7 +22,7 @@
 
 \usepackage[a4paper, lmargin=30mm, rmargin=15mm, tmargin=20mm, bmargin=20mm]{geometry}
 \linespread{1.5}
-\usepackage{parskip}
+\usepackage[skip = 1.25cm]{parskip}
 \newcommand{\mainparskip}{1.25cm}
 
 
@@ -55,6 +55,7 @@
 \usepackage{amsfonts}
 
 \usepackage{tikz}
+\usetikzlibrary{graphs, arrows.meta}
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.18}
 \usepgfplotslibrary{external}
@@ -78,3 +79,15 @@
 \setlist[itemize]{label={---}}
 
 \usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage{complexity}
+
+\usepackage{xpatch}
+
+\usepackage{algpseudocode}
+\usepackage{algorithm}
+\makeatletter
+\xpatchcmd{\algorithmic}{\itemsep\z@}{\itemsep=-0.5em}{}{}
+\makeatother
+
