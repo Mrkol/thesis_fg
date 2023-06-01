@@ -57,6 +57,7 @@
 \usepackage{tikz}
 \usetikzlibrary{graphs, arrows.meta}
 \usepackage{pgfplots}
+\usepackage{pgfplotstable}
 \pgfplotsset{compat=1.18}
 \usepgfplotslibrary{external}
 \tikzexternalize
@@ -88,6 +89,6 @@
 \usepackage{algpseudocode}
 \usepackage{algorithm}
 \makeatletter
-\xpatchcmd{\algorithmic}{\itemsep\z@}{\itemsep=-0.5em}{}{}
+\xpatchcmd{\algorithmic}{\itemsep\z@}{\itemsep=-0.2em}{}{}
 \makeatother
-
+\floatname{algorithm}{Алгоритм}
