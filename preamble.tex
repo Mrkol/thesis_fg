@@ -60,7 +60,8 @@
 \usepackage{pgfplotstable}
 \pgfplotsset{compat=1.18}
 \usepgfplotslibrary{external}
-\tikzexternalize
+\usetikzlibrary{external}
+\tikzexternalize[prefix=build/]
 
 \usepackage{wrapfig}
 
