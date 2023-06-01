@@ -1,17 +1,21 @@
 \newgeometry{lmargin=15mm, rmargin=15mm, tmargin=20mm, bmargin=20mm}
 
 \begin{titlepage}
-    \begin{center}
+%
+\setlength{\parskip}{0pt}
+\begin{center}
     Федеральное государственное автономное образовательное учреждение\break высшего образования\par
     <<Московский физико-технический институт (государственный университет)>>\par
     Физтех-школа прикладной математики и информатики\par
     Центр обучения проектированию и разработке игр\par
-    \end{center}
-%
+\end{center}
+\vspace{5mm}
+\begin{small}
     {\bf Направление подготовки}: 09.04.01 Информатика и вычислительная техника\newline
     {\bf Направленность (профиль) подготовки}: Анализ данных и разработка информационных систем\par
+\end{small}
 %
-    {
+{
     \topskip0pt
     \vspace*{\fill}
     \begin{center}
@@ -21,25 +25,31 @@
         (магистерская диссертация)
     \end{center}
     \vspace*{\fill}
-    }
+}
 %
-    \hfill
-    \begin{minipage}[t]{7cm}
+\hfill % this moves the minipage to right
+%
+\begin{minipage}[t]{8cm}
     {\bf Студент: \newline}
-    Санду Роман Александрович\newline
-    \vspace{-3mm}
-    \rule{7cm}{0.15mm}
-    \centerline{\small\it (подпись студента)}\newline
+    Санду Роман Александрович\par
+    \vspace{1mm}
+    \rule{8cm}{0.15mm}\par
+    \vspace{-4mm}
+    \centerline{\small\it (подпись студента)}\par
     {\bf Научный руководитель: \newline}
-    Щербаков Александр Станиславович\newline
-    \vspace{-3mm}
-    \rule{7cm}{0.15mm}
+    Щербаков Александр Станиславович\par
+    \vspace{1mm}
+    \rule{8cm}{0.15mm}\par
+    \vspace{-4mm}
     \centerline{\small\it (подпись научного руководителя)}
-    \end{minipage}
-    \vspace*{\fill}
-    \begin{center}
-        Москва 2023
-    \end{center}
+\end{minipage}
+%
+\vspace*{\fill}
+%
+\begin{center}
+    Москва 2023
+\end{center}
+%
 \end{titlepage}
 
 \restoregeometry
