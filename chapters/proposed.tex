@@ -171,7 +171,58 @@
 Пользователь указывает необходимое на момент запуска состояние в функции декларации, а рантайм находит оптимальную последовательность смены состояний в процессе исполнения графа, минимизируя тем самым накладные расходы.
 
 \subsection{Пользовательское API рантайма}
-\todo{тут отрывочки кода, как оно выглядит}
+В рамках данной работы также было разработано эргономичное для разработчиков API для работы с рантаймом кадровых графов. Пример его использования, включающий большую часть функционала, изображён на рисунке \ref{fig:exampleNode}.
+\begin{figure*}
+\begin{minted}[linenos, escapeinside=!!]{c++}
+dabfg::NodeHandle makeExampleNode(bool useHistory)
+{
+  return dabfg::register_node("example_node", DABFG_PP_NODE_SRC, !\mintlbl{registerNode}!
+    [useHistory](dabfg::Registry registry) !\mintlbl{nodeDeclare}!
+    {
+      registry.orderMeAfter("some_other_node");
+
+      auto colorRequest = registry.renameTexture("color",
+        "color_after_example", dabfg::History::No);
+      auto depthRequest = registry.modifyTexture("gbuf_depth");
+
+      registry.requestRenderPass()
+        .color({colorRequest, "additional_color"})
+        .depth(explicitDepthRequest);
+
+      registry.readTexture("some_optional_input_texture")
+        .optional()
+        .atStage(dabfg::Stage::PS)
+        .bindToShaderVar("some_optional_shader_input");
+
+      if (useHistory)
+        registry.readTextureHistory("additional_color")
+          .atStage(dabfg::Stage::PS)
+          .bindToShaderVar("previous_frame_additional_color");
+
+      auto cpuDataHndl = !\mintlbl{blobHandle}!
+        registry.readBlob<DataType>("cpu_data")
+            .handle();
+
+      return !\mintlbl{nodeExecute}!
+        [cpuDataHndl, shader = createShader("shaderName")]()
+        {
+          shader.render(*cpuDataHndl);
+        };
+    });
+}
+\end{minted}
+\caption{Листинг примера использования разработанного API <<daBfg>>.}
+\label{fig:exampleNode}
+\end{figure*}
+Вершины создаются при помощи функции \inlcpp{dabfg::register_node} (строка \ref{registerNode}), возвращающей объект \inlcpp{dabfg::NodeHandle}.
+Созданная вершина автоматически попадает в глобальный кадровый граф, и автоматически удаляется, когда соответствующий объект \inlcpp{dabfg::NodeHandle} удаляется.
+На вход функция регистрация вершин принимает лямбда-функцию декларации (строка \ref{nodeDeclare}), от которой в свою очередь требуется вернуть функцию запуска вершины (строка \ref{nodeExecute}).
+Подобный дизайн вложенных лямбд позволяет захватывать \textit{хэндлы} ресурсов, получаемые в функции декларации, и доставать из них данные в функции запуска.
+Так, например, в строке \ref{blobHandle} у объекта \inlcpp{dabfg::Registry}, отвечающего за декларативное описание скрытых параметров вершины, запрашивается на чтение CPU-ресурс \inlcpp{"cpu_data"} с типом \inlcpp{DataType}.
+Далее, хэндл этого ресурса захватывается в лямбда-функцию запуска, и разыменовывается для доступа к соответствующим данным, созданным в иной вершине.
+Стоит отметить, что доступ к данным предоставляется по константной ссылке, только на чтение, так как для изначального запроса был использован шаблон функции \inlcpp{readBlob}.
+В случае использования парного шаблона \inlcpp{modifyBlob}, обозначающего модификацию ресурса и соответственно иначе влияющего на упорядочивание вершин, тип возвращаемого хэндла меняется и предоставляет доступ и на запись.
+\todo{ещё написать, но я устал}
 
 \subsection{Построение расписания ресурсов}
 Последний, и наиболее важный в данной работе этап компиляции кадрового графа -- построение расписания ресурсов.
