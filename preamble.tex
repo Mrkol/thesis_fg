@@ -1,5 +1,5 @@
 \usepackage{fontspec}
-\usepackage{polyglossia}
+\usepackage[babelshorthands=true]{polyglossia}
 \let\lang\relax\let\endlang\relax % avoid conflict with complexity.sty
 
 \setdefaultlanguage{russian}
@@ -24,8 +24,12 @@
 
 \usepackage[a4paper, lmargin=30mm, rmargin=15mm, tmargin=20mm, bmargin=20mm]{geometry}
 \linespread{1.5}
-\usepackage[skip = 1.25cm]{parskip}
-\newcommand{\mainparskip}{1.25cm}
+\usepackage[indent = 1.25cm]{parskip}
+
+\usepackage{enumitem}
+\setlist{nosep,topsep=-\parskip}
+\setlist[enumerate]{label={\arabic*)}}
+\setlist[itemize]{label={---}}
 
 
 \usepackage[outputdir=build]{minted}
@@ -77,11 +81,6 @@
 \usepackage[outputdir=build]{minted}
 \usemintedstyle{vs}
 \renewcommand{\inlcpp}[1]{\mintinline{c++}{#1}}
-
-\usepackage{enumitem}
-\setlist{parsep=0pt, topsep={-\mainparskip}}
-\setlist[enumerate]{label={\arabic*)}}
-\setlist[itemize]{label={---}}
 
 \usepackage{amssymb}
 \usepackage{amsmath}
