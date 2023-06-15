@@ -340,8 +340,8 @@ r^o_i &=
         \draw [help lines, dashed] (\x-.5,1) -- ++(0,-4.5);
     }
     \draw (6.5,1.5) -- ++(0,-5);
-    \draw (3, 1.5) node {Чётный кадр};
-    \draw (10, 1.5) node {Нечётный кадр};
+    \draw (3, 1.75) node {Чётный кадр};
+    \draw (10, 1.75) node {Нечётный кадр};
 %
     \begin{scope}
         \node[align=center] (A) at (0, 0)   {A\\$\alpha$};
@@ -394,7 +394,7 @@ r^o_i &=
 
 Пусть $l_i, r_i \in \mathbb{Z}_T$, $s_i \in \mathbb{Z}_{>0}$, $i=\overline{0,n}$.
 Допустимой функцией аллокации называют функцию $\alpha : \overline{0,n} \to \mathbb{Z}_{\geqslant 0}$ такую, что для любых $i \neq j$, либо $\left[l_i, r_i\right) \cap \left[l_j, r_j\right) = \emptyset$ в смысле циклического времени, либо $\left[\alpha(i), \alpha(i) + s_i\right) \cap \left[\alpha(j), \alpha(j) + s_j\right) = \emptyset$.
-Для функции аллокации $\alpha$, определена величина $makespan = \max_i \alpha(i) + s_i$.
+Для функции аллокации $\alpha$ определено \textit{количество занимаемой памяти} $makespan = \max_i \alpha(i) + s_i$.
 Задача "--- найти допустимую функцию аллокации $\alpha_{\min}$, минимизирующую величину $makespan$.
 
 Эта задача "--- обобщение хорошо известной в литературе задачи динамической аллокации памяти (от англ. dynamic storage allocation, сокращённо DSA), необходимое для учёта запросов к истории ресурсов.
