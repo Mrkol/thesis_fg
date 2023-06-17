@@ -254,10 +254,25 @@
   doi = {10.1145/378456.378468},
   abstract = {Current affordable architectures for high-speed display of shaded 3D objects operate orders of magnitude too slowly. Recent advances in floating point chip technology have outpaced polygon fill time, making the memory access bottleneck between the drawing processor and the frame buffer the most significant factor to be accelerated. Massively parallel VLSI system have the potential to bypass this bottleneck, but to date only at very high cost. We describe a new more affordable VLSI solution. A pipeline of triangle processors rasterizes the geometry, then a further pipeline of shading processors applies Phong shading with multiple light sources. The triangle processor pipeline performs 100 billion additions per second, and the shading pipeline performs two billion multiplies per second. This allows 3D graphics systems to be built capable of displaying more than one million triangles per second. We show the results of an anti-aliasing technique, and discuss extensions to texture mapping, shadows, and environment maps.},
   journal = {SIGGRAPH Comput. Graph.},
-  month = {jun},
   pages = {21–30},
   numpages = {10},
   keywords = {triangle processor, interpolation, shading, hardware lighting models, real-time image display, graphics VLSI}
+}
+
+@inproceedings{10.1145/199404.199420,
+author = {Maciel, Paulo W. C. and Shirley, Peter},
+title = {Visual Navigation of Large Environments Using Textured Clusters},
+year = {1995},
+isbn = {0897917367},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/199404.199420},
+doi = {10.1145/199404.199420},
+abstract = {A visual navigation system is described which uses texture mapped primitives to represent clusters of objects to maintain high and approximately constant frame rates. In cases where there are more unoccluded primitives inside the viewing frustum than can be drawn in real-time on the workstation, this system ensures that each visible object, or a cluster that includes it, is drawn in each frame. The system supports the use of traditional “level-of-detail” representations for individual objects, and supports the automatic generation of a certain type of level-of-detail for objects and clusters of objects. The concept of choosing a representation from among those associated with an object that accounts for the direction from which the object is viewed is also supported. The level-of-detail concept is extended to the whole model and the entire scene is stored as a hierarchy of levels-of-detail that is traversed top-down to find a good representation for a given viewpoint. This system does not assume that visibility information can be extracted from the model and is thus especially suited for outdoor environments.},
+booktitle = {Proceedings of the 1995 Symposium on Interactive 3D Graphics},
+pages = {95–ff.},
+location = {Monterey, California, USA},
+series = {I3D '95}
 }
 
 @article{barronsuper,
