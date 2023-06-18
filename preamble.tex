@@ -26,6 +26,15 @@
 \linespread{1.5}
 \usepackage[indent = 1.25cm]{parskip}
 
+\usepackage{titlesec}
+\titleformat{\section}{\normalfont\Large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\normalfont\large\bfseries}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}{\normalfont\normalsize\bfseries}{\thesubsubsection}{1em}{}
+
+\titlespacing*{\section} {\parindent}{3.5ex plus 1ex minus .2ex}{2.3ex plus .2ex}
+\titlespacing*{\subsection} {\parindent}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+\titlespacing*{\subsubsection}{\parindent}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
 \usepackage{enumitem}
 \setlist{nosep,topsep=-\parskip}
 \setlist[enumerate]{label={\arabic*)}}
